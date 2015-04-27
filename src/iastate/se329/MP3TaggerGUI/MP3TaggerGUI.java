@@ -118,12 +118,13 @@ public class MP3TaggerGUI extends JFrame
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String message = "Music Tagger Application\n\n"
-						+ "To Use this application, click the Source Directory Browse"
-						+ "button and browse to your current music library.  Select the "
-						+ "whole folder instead of individual songs.  "
-						+ "Next use the Destination Directory Browse button to select a folder you want"
-						+ "your music to be organized in."
-						+ "Finally select prefered options and click start";
+						+ "To Use this application follow the steps below:\n"
+						+ "1. Click the Source Directory Browse button\n"
+						+ "2. Browse to your current music library.\n"
+						+ "   NOTE: Make sure to select the whole folder instead of individual songs.\n"
+						+ "3. Click the Destination Directory Browse button\n"
+						+ "4. Select folder you want your music to be organized in.\n"
+						+ "5. Finally select prefered options and click Start";
 				
 				JOptionPane.showMessageDialog(null, message, "Getting Started", JOptionPane.DEFAULT_OPTION);
 			}
