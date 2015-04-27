@@ -1,6 +1,8 @@
 package iastate.se329.MP3Tagger;
 
-public class MP3TaggerController implements MP3TaggerInterface, Runnable {
+import javax.swing.SwingWorker;
+
+public class MP3TaggerController  extends SwingWorker<Void, Void> implements MP3TaggerInterface, Runnable {
 
     private MP3Tagger tagger;
 
@@ -48,10 +50,17 @@ public class MP3TaggerController implements MP3TaggerInterface, Runnable {
         return tagger.getNextProblem();
     }
 
-    @Override
-    public void run() {
-        tagger.run();
+//    @Override
+//    public void run() {
+//        tagger.run();
+//
+//    }
 
-    }
+	@Override
+	protected Void doInBackground() throws Exception {
+		//tagger.execute();
+		return tagger.doInBackground();
+	}
+	
 
 }
