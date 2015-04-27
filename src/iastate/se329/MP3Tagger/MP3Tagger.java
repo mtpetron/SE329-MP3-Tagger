@@ -2,9 +2,10 @@ package iastate.se329.MP3Tagger;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.Iterator;
 import java.util.LinkedList;
+
+import javax.swing.SwingWorker;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
@@ -13,7 +14,7 @@ import org.apache.commons.io.filefilter.SuffixFileFilter;
 
 import com.mpatric.mp3agic.*;
 
-public class MP3Tagger implements MP3TaggerInterface, Runnable {
+public class MP3Tagger extends SwingWorker<Void, Void> implements MP3TaggerInterface, Runnable {
 
     private String sourcePath;
     private String destPath;
@@ -151,6 +152,7 @@ public class MP3Tagger implements MP3TaggerInterface, Runnable {
                 embedAlbumArt(current);
                 organize(current, slash);
             }
+            
         }
 
         return true;
@@ -254,13 +256,19 @@ public class MP3Tagger implements MP3TaggerInterface, Runnable {
 
     }
 
-    @Override
-    public void run() {
-        while (this.ready == false) {
+	@Override
+	protected Void doInBackground() throws Exception {
+		// TODO Auto-generated method stub
+		start();
+		return null;
+	}
 
-        }
-        this.start();
-
-    }
+//    @Override
+//    public void run() {
+//        while (this.ready == false) {
+//
+//        }
+//        this.start();
+//    }
 
 }
