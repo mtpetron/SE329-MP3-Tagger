@@ -89,8 +89,8 @@ public class MP3TaggerGUI extends JFrame
 			}
         });
 
-        JMenu mnEdit = new JMenu("Edit");
-        menuBar.add(mnEdit);
+        //JMenu mnEdit = new JMenu("Edit");
+        //menuBar.add(mnEdit);
 
         JMenu mnHelp = new JMenu("Help");
         menuBar.add(mnHelp);
@@ -109,6 +109,28 @@ public class MP3TaggerGUI extends JFrame
 				JOptionPane.showMessageDialog(null, version, "About", JOptionPane.DEFAULT_OPTION);
 			}
         });
+        
+        JMenuItem mntmGettingStarted = new JMenuItem("Getting Started");
+        mnHelp.add(mntmGettingStarted);
+        
+        mntmGettingStarted.addActionListener(new ActionListener() {
+        	//listens to enter on the text box, updates the tagger
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String message = "Music Tagger Application\n\n"
+						+ "To Use this application, click the Source Directory Browse"
+						+ "button and browse to your current music library.  Select the "
+						+ "whole folder instead of individual songs.  "
+						+ "Next use the Destination Directory Browse button to select a folder you want"
+						+ "your music to be organized in."
+						+ "Finally select prefered options and click start";
+				
+				JOptionPane.showMessageDialog(null, message, "Getting Started", JOptionPane.DEFAULT_OPTION);
+			}
+        });
+        
+        
+        
         tagger = new MP3TaggerController();
         
         // Initialize contentPane (the JPanel
@@ -146,8 +168,8 @@ public class MP3TaggerGUI extends JFrame
         JProgressBar progressBar = new JProgressBar(0, 100);
         progressBar.setBounds(10, 350, 200, 20);
         //progressBar.setIndeterminate(true);
-        progressBar.setValue(0);
-        progressBar.setStringPainted(true);
+        //progressBar.setValue(0);
+        //progressBar.setStringPainted(true);
         contentPane.add(progressBar);
         
         
